@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+
+thead {
+  height: 50px;
+  font-weight: bold;
+  text-align: left;
+  background-color: #cccccc;
+}
+</style>
+</head>
+	<h3><a href="http://localhost:5000/list">Go back</a></h3>
+	<body>
+	<form name="myform" action="{{ url_for('delete_update_record') }}" method="POST">
+		<fieldset>
+		<legend><h3>Customer Information</h3></legend>
+		<div style = font-size:20px; font-weight:bold;margin-left:150px;>
+		{% for row in rows1 %}
+
+		ID<br>
+		<input type = "text" name ="cid" value="{{ row['ID'] }}" readonly="readonly"/><br>
+
+		Name<br>
+		<input type = "text" name ="name" value="{{ row['Name'] }}" required="required" /><br>
+
+		Email<br>
+		<input type = "email" name ="email" value="{{ row['Email'] }}" required="required" 
+                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" /><br>
+		
+		Street<br>
+		<input type = "text" name ="street" value="{{ row['Street'] }}" required="required" /><br>
+
+		City<br>
+		<input type = "text" name ="city" value="{{ row['City'] }}"  required="required"/><br>
+
+		State<br>
+		<input type = "text" name ="state" value="{{ row['State'] }}" required="required" /><br>
+
+		Pincode<br>
+		<input type="text" name="pincode" value="{{ row['Pincode'] }}"  required="required" pattern="[0-9]{6}" maxlength="6" /><br>
+
+		Country<br>
+		<input type = "text" name ="country" value="{{ row['Country'] }}" required="required"/><br><br>
+		<input type="hidden" name="entry_id" value="{{ row['Email'] }}">
+		<input type = "submit" name="submit" value = "Update"  style="height:30px; width:60px;" />&emsp;
+		<input type="submit" name="submit" value="Cancel" style="height:30px; width:60px; " />
+		{% endfor %}
+		</div>
+		</fieldset>
+		</form>
+		
+	</body>
+</html>

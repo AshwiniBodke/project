@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+
+thead {
+  height: 50px;
+  font-weight: bold;
+  text-align: left;
+  background-color: #cccccc;
+}
+</style>
+</head>
+
+	<body>
+	<h3><a href="http://localhost:5000/list">Go back</a></h3>
+	<center>
+	<table CELLPADDING="4" CELLSPACING="3">
+	<caption><h2>Customer Requirement Information</h2></caption>
+	<thead>
+		<td>ID</td>
+		<td>CustRequirement</td>
+		<td>Approved</td>
+		<td>Created_at</td>
+		<td>Updated_at</td>
+		<td width="10%">Action</td>
+	</thead>
+	{% for row in rows1 %}
+	    <tr>
+		<td>{{ row["ID"] }}</td>
+	        <td>{{ row["CustRequirement"] }}</td>
+		<td>{{ row["Approved"] }}</td>
+		<td>{{ row["CREATED_AT"] }}</td>
+		<td>{{ row["UPDATED_AT"] }}</td>
+		<form name="myform" action="{{ url_for('update_require') }}"  method="POST">
+		<input type="hidden" name="cid" value="{{ row['ID'] }}">
+		<td><input type="submit"  name="submit" value="Edit" /></td>
+		</form>
+	    </tr>
+	{% endfor %}
+	</center></table>
+
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+
+thead {
+  height: 50px;
+  font-weight: bold;
+  text-align: left;
+  background-color: #cccccc;
+}
+</style>
+</head>
+	<h3><a href="http://localhost:5000/list">Go back</a></h3>
+	<body>
+	<form name="myform" action="{{ url_for('update_require') }}" method="POST">
+		<fieldset>
+		<legend><h3>Customer Information</h3></legend>
+		<div style = font-size:20px; font-weight:bold;margin-left:150px;>
+		ID<br>
+		<input type="text" name="cid" value="{{ rows1['ID'] }}" readonly="readonly"><br>
+		Approved<br>
+		<input type="text" name="approved" value="{{ rows1['Approved'] }}"  required="required" /><br><br>
+		<input type="hidden" name="cid" value="{{ rows1['ID'] }}">
+		<input type = "submit" name="submit" value = "Update"  style="height:30px; width:60px;" />&emsp;
+		<input type="submit" name="submit" value="Cancel" style="height:30px; width:60px; " />
+		</div>
+		</fieldset>
+		</form>
+		
+	</body>
+</html>

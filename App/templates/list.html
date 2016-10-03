@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+
+thead {
+  height: 50px;
+  font-weight: bold;
+  text-align: left;
+  background-color: #cccccc;
+}
+</style>
+</head>
+
+	<body>
+	<h3><a href="http://localhost:5000">Go back</a></h3>
+	<h3><a href="http://localhost:5000/enternew">Add New Record </a></h3><br>
+	<center>
+	
+	<table CELLPADDING="4" CELLSPACING="3">
+	<caption><h2>Customer Information</h2></caption>
+	<thead>
+		<td>ID</td>
+		<td>Name</td>
+		<td>Email</td>
+		<td>Street</td>
+		<td>City</td>
+		<td>State</td>
+		<td>Pincode</td>
+		<td>Country</td>
+		<td>Created_at</td>
+		<td>Updated_at</td>
+		<td width="20%">Action</td>
+	</thead>
+	{% for row in rows1 %}
+	    <tr>
+		<td>{{ row["ID"] }} </td>
+	        <td>{{ row["Name"] }}</td>
+		<td>{{ row["Email"] }}</td>
+		<td>{{ row["Street"] }}</td>
+		<td>{{ row["City"] }}</td>
+		<td>{{ row["State"] }}</td>
+		<td>{{ row["Pincode"] }}</td>
+		<td>{{ row["Country"] }}</td>
+		<td>{{ row["Created_at"] }}</td>
+		<td>{{ row["Updated_at"] }}</td>
+		<form name="myform" action="{{ url_for('delete_update_record') }}" method="POST">
+		<input type="hidden" name="entry_id" value="{{ row['Email'] }}">
+		<td><input type="submit"  name="submit" value="Edit" />&emsp;
+		<input type="submit" name="submit"  value="Delete" />&emsp;
+		<input type="submit" name="submit"  value="Add" />&emsp;
+		<input type="submit" name="submit"  value="Details" /></td>
+		</form>
+	    </tr>
+	{% endfor %}
+
+	</center></table>
+
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<style type="text/css">     
+	    select {
+	        width:150px;
+		    }
+	</style>
+	<title>Customer Requirement Form</title>
+</head>
+	<body>
+		<h3><a href="http://localhost:5000/list">Go back</a></h3>
+		<h3><font color="RED">{{ msg }}</font></h3><br>
+		<form name="myform" action="{{ url_for('addrequire') }}" method="POST">
+		<fieldset>
+		<legend><h3>Customer Requirement</h3></legend>
+		<div style = font-size:20px; font-weight:bold;margin-left:150px;>
+		ID<br>
+		<input type = "text" name ="cid" value="{{ rows1['ID'] }}" readonly="readonly"/><br><br>
+
+		Select Requirement<br>
+		<select name="laptop" required="required">
+			<option disabled selected value> -- select option -- </option>
+			<option value="Apple">Apple</option>
+    			<option value="Lenovo">Lenovo</option>
+  			<option value="HP">HP</option>
+    			<option value="Asus">Asus</option>
+			<option value="Dell">Dell</option>
+			<option value="Sony">Sony</option>
+		</select><br><br>
+		<input type = "submit" name="submit" value = "Add"  style="height:30px; width:60px;" />&emsp;
+		</div>
+		</fieldset>
+		</form>
+	</body>
+</html>

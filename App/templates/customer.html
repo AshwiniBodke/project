@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<body>
+		<h3><a href="http://localhost:5000">Go back to home page</a></h3>
+		<h3><font color="RED">{{ msg }}</font></h3><br>
+		<form name="myform" action="{{ url_for('addrec') }}" method="POST">
+		<fieldset>
+		<legend><h3>Customer Information</h3></legend>
+		
+		<div style = font-size:20px; font-weight:bold;margin-left:150px;>
+		Name<br>
+		<input type = "text" name ="name" required="required" pattern="[A-Za-z]{1,32}" /><br>
+
+		Email<br>
+		<input type = "email" name ="email"  required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/><br>
+		
+		Street<br>
+		<input type = "text" name ="street" required="required" pattern="[A-Za-z]{1,32}" /><br>
+
+		City<br>
+		<input type = "text" name ="city"  required="required" pattern="[A-Za-z]{1,32}" /><br>
+
+		State<br>
+		<input type = "text" name ="state" required="required" pattern="[A-Za-z]{1,32}" /><br>
+
+		Pincode<br>
+		<input type="text" name="pincode" required="required" pattern="[0-9]{6}" maxlength="6" /><br>
+
+		Country<br>
+		<input type = "text" name ="country"  required="required" pattern="[A-Za-z]{1,32}" /><br><br>
+		<input type = "submit" name="submit" value = "Add"  style="height:30px; width:60px;" />&emsp;
+		</div>
+		</fieldset>
+		</form>
+	</body>

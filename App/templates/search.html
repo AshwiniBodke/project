@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<body>
+		<h3><a href="http://localhost:5000">Go back to home page</a></h3>
+		<h3><font color="RED">{{ msg }}</font></h3><br>
+		<form name="myform" action="{{ url_for('search') }}" method="POST">
+		<fieldset>
+		<legend><h3>Search Information</h3></legend>
+		
+		<div style = font-size:20px; font-weight:bold;margin-left:150px;>
+
+		Email:<input type = "email" name ="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+		
+		City:<input type = "text" name ="city" />
+
+		State:
+		<input type = "text" name ="state" />
+
+		Pincode:<input type="text" name="pincode" pattern="[0-9]{6}" maxlength="6" /><br><br>
+
+		<input type="submit" name="submit" value="Search" style="height:30px; width:60px;">&emsp;
+		<input type="submit" name="submit" value="Cancel" style="height:30px; width:60px;" />
+		
+		</div>
+		</fieldset>
+		</form>
+	</body>
